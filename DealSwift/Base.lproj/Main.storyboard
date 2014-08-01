@@ -22,6 +22,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="139" width="280" height="321"/>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="139" width="280" height="321"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="pDp-se-gVv"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="EtL-KI-Qdi"/>
@@ -60,18 +63,6 @@
                                     <rect key="frame" x="33" y="20" width="134" height="73"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-IE-7kP">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="FRIENDS">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="128" y="480" width="65" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="friendsButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="imM-4F-awz"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V72-OL-udd">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -80,6 +71,27 @@
                                     <rect key="frame" x="20" y="101" width="160" height="30"/>
                                 </variation>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="133" translatesAutoresizingMaskIntoConstraints="NO" id="ZAb-Yx-8qn">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="94" y="468" width="133" height="45"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-IE-7kP">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="FRIENDS">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="128" y="521" width="65" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="Brz-jd-VTn" kind="presentation" id="vtV-mG-joD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -88,8 +100,9 @@
                                 <exclude reference="dQc-Si-bUh"/>
                                 <exclude reference="7gr-u2-RS4"/>
                                 <exclude reference="rsc-MB-NBI"/>
-                                <exclude reference="LOX-IE-7kP"/>
                                 <exclude reference="V72-OL-udd"/>
+                                <exclude reference="ZAb-Yx-8qn"/>
+                                <exclude reference="LOX-IE-7kP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -103,6 +116,7 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="ZAb-Yx-8qn"/>
                                 <include reference="LOX-IE-7kP"/>
                             </mask>
                         </variation>
@@ -111,49 +125,70 @@
                         <outlet property="betLabel" destination="7gr-u2-RS4" id="1eW-1w-d41"/>
                         <outlet property="betTable" destination="Uks-Ez-qxZ" id="OkI-bz-jw3"/>
                         <outlet property="label" destination="rsc-MB-NBI" id="Vqd-nQ-1kb"/>
+                        <outlet property="selectedFriendLabel" destination="ZAb-Yx-8qn" id="UoR-6n-Gwm"/>
                         <outlet property="textField" destination="V72-OL-udd" id="sVy-P5-9rG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-393" y="-830"/>
+            <point key="canvasLocation" x="-393" y="-830.25"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Vow-XB-hiw">
+        <!--Friends-->
+        <scene sceneID="WNE-f9-IRh">
             <objects>
-                <viewController id="dFh-Oe-uuW" sceneMemberID="viewController">
+                <viewController id="Brz-jd-VTn" customClass="Friends" customModule="DealSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dih-Db-NuW"/>
-                        <viewControllerLayoutGuide type="bottom" id="GhX-Yk-qJ2"/>
+                        <viewControllerLayoutGuide type="top" id="MyY-ZQ-OFV"/>
+                        <viewControllerLayoutGuide type="bottom" id="PIL-Sj-SZE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QDE-oP-ae2">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                    <view key="view" contentMode="scaleToFill" id="5o4-24-IBZ">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IN1-AG-RPI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chv-xs-SPO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="20" width="35" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="presentation" identifier="Back" id="bzX-oJ-GDc"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-1c-VON">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="20" width="320" height="626"/>
+                                    <rect key="frame" x="20" y="58" width="280" height="582"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="Brz-jd-VTn" id="qnv-tA-en9"/>
+                                    <outlet property="delegate" destination="Brz-jd-VTn" id="fvm-0m-BAv"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="IN1-AG-RPI"/>
+                                <exclude reference="Chv-xs-SPO"/>
+                                <exclude reference="zoc-1c-VON"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="IN1-AG-RPI"/>
+                                <include reference="Chv-xs-SPO"/>
+                                <include reference="zoc-1c-VON"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="friendsTable" destination="zoc-1c-VON" id="iTj-7y-lwD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WaT-lV-Ryy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A2V-e6-WSz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="-830.25"/>
+            <point key="canvasLocation" x="300" y="-830.25"/>
         </scene>
     </scenes>
 </document>

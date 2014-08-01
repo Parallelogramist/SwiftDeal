@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var label: UILabel
     @IBOutlet var betLabel: UILabel
     @IBOutlet var textField: UITextField
+    @IBOutlet var selectedFriendLabel: UILabel
     
     let betTableArray:[String] = ["Breakfast", "Ice Cream",
         "Soda", "Beer", "A Shot",
@@ -30,42 +31,7 @@ class ViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(textField.text, forKey:"name")
         label.text = "Welcome\n\(textField.text)!"
     }
-    
-    @IBAction func friendsButton(sender: UIButton) {
-        if (ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.NotDetermined){
-            var emptyDictionary: CFDictionaryRef?
-            var addressBook = !ABAddressBookCreateWithOptions(emptyDictionary, nil)
-            
-            ABAddressBookRequestAccessWithCompletion(addressBook,{success, error in
-                if success {self.getContactNames();}
-                })
-        }
-        if (ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.Authorized) {
-            getContactNames()
-        }
-    }
-    
-    // #pragma mark - ABUI
-    
-    func getContactNames()
-    {
-        var errorRef: Unmanaged<CFError>?
-        var addressBook: ABAddressBookRef? = extractABAddressBookRef(ABAddressBookCreateWithOptions(nil, &errorRef))
-        var contactList: NSArray = ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue()
         
-        for record:ABRecordRef in contactList {
-            var contactName: String = ABRecordCopyCompositeName(record).takeRetainedValue() as NSString
-            NSLog("contactName: \(contactName)")
-        }
-    }
-    
-    func extractABAddressBookRef(abRef: Unmanaged<ABAddressBookRef>!) -> ABAddressBookRef? {
-        if let ab = abRef {
-            return Unmanaged<NSObject>.fromOpaque(ab.toOpaque()).takeUnretainedValue()
-        }
-        return nil
-    }
-    
     // #pragma mark - UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
@@ -92,13 +58,16 @@ class ViewController: UIViewController {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let data = betTableArray[indexPath.row]
-        betLabel.text = "Selected Item:\n\(data)"
+        NSUserDefaults.standardUserDefaults().setObject(betTableArray[indexPath.row], forKey:"bet")
+
+        betLabel.text = "Selected Item:\n\(betTableArray[indexPath.row])"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = "Welcome\n" + (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!)
+        label.text = "Welcome\n" + (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!) + "!"
+        betLabel.text = "Selected Item:\n" + (NSUserDefaults.standardUserDefaults().objectForKey("bet") as String!)
+        selectedFriendLabel.text = "Selected Friend:\n" + (NSUserDefaults.standardUserDefaults().objectForKey("friend") as String!)
     }
     
     override func didReceiveMemoryWarning() {
