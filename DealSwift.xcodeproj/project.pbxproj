@@ -395,6 +395,7 @@
 				8BBA807D1986AD9300676E7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BBA807E1986AD9300676E7B /* Build configuration list for PBXNativeTarget "DealSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +404,7 @@
 				8BBA80801986AD9300676E7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
