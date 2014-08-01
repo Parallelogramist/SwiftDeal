@@ -98,7 +98,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //label.text = "Welcome "
+        //label.text = "Welcome " //this line was giving error also I added UIAddressBook and AddressBook libs
         //let name:String = (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!)
         //label.text = " " + name
     }
