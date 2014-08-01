@@ -9,26 +9,26 @@ import AddressBook
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    
     @IBOutlet var betTable: UITableView
     @IBOutlet var label: UILabel
     @IBOutlet var betLabel: UILabel
     @IBOutlet var textField: UITextField
     
     let betTableArray:[String] = ["Breakfast", "Ice Cream",
-                              "Soda", "Beer", "A Shot",
-                              "5 bucks"]
+        "Soda", "Beer", "A Shot",
+        "5 bucks"]
     
     var betImages:[UIImage] = [UIImage(named:"breakfast"),
-                            UIImage(named:"iceCream"),
-                            UIImage(named:"soda"),
-                            UIImage(named:"beer"),
-                            UIImage(named:"shot"),
-                            UIImage(named:"dollarBill")]
+        UIImage(named:"iceCream"),
+        UIImage(named:"soda"),
+        UIImage(named:"beer"),
+        UIImage(named:"shot"),
+        UIImage(named:"dollarBill")]
     
     @IBAction func saveButton(sender: UIButton) {
         NSUserDefaults.standardUserDefaults().setObject(textField.text, forKey:"name")
-        label.text = "Welcome\n\(textField.text)!" //something funny going on here
+        label.text = "Welcome\n\(textField.text)!"
     }
     
     @IBAction func friendsButton(sender: UIButton) {
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             
             ABAddressBookRequestAccessWithCompletion(addressBook,{success, error in
                 if success {self.getContactNames();}
-            })
+                })
         }
         if (ABAddressBookGetAuthorizationStatus() == ABAuthorizationStatus.Authorized) {
             getContactNames()
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     }
     
     // #pragma mark - ABUI
-
+    
     func getContactNames()
     {
         var errorRef: Unmanaged<CFError>?
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!  {
-
+        
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
         
         cell.textLabel.text = betTableArray[indexPath.row]
@@ -98,11 +98,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //label.text = "Welcome " //this line was giving error also I added UIAddressBook and AddressBook libs
-        //let name:String = (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!)
-        //label.text = " " + name
+        label.text = "Welcome\n" + (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
