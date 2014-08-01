@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2655FED8198B4FCD002890B4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2655FED7198B4FCD002890B4 /* AddressBook.framework */; };
+		2655FEDA198B4FD3002890B4 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2655FED9198B4FD3002890B4 /* AddressBookUI.framework */; };
 		8BBA80651986AD9300676E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA80641986AD9300676E7B /* AppDelegate.swift */; };
 		8BBA80671986AD9300676E7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBA80661986AD9300676E7B /* ViewController.swift */; };
 		8BBA806A1986AD9300676E7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBA80681986AD9300676E7B /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2655FED7198B4FCD002890B4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		2655FED9198B4FD3002890B4 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		8BBA805F1986AD9300676E7B /* DealSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DealSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BBA80631986AD9300676E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BBA80641986AD9300676E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2655FEDA198B4FD3002890B4 /* AddressBookUI.framework in Frameworks */,
+				2655FED8198B4FCD002890B4 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +63,8 @@
 		8BBA80561986AD9300676E7B = {
 			isa = PBXGroup;
 			children = (
+				2655FED9198B4FD3002890B4 /* AddressBookUI.framework */,
+				2655FED7198B4FCD002890B4 /* AddressBook.framework */,
 				8BBA80611986AD9300676E7B /* DealSwift */,
 				8BBA80741986AD9300676E7B /* DealSwiftTests */,
 				8BBA80601986AD9300676E7B /* Products */,

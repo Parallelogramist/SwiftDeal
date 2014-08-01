@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     @IBAction func saveButton(sender: UIButton) {
         NSUserDefaults.standardUserDefaults().setObject(textField.text, forKey:"name")
-        label.text = "Welcome\n\(textField.text)!"
+        label.text = "Welcome\n\(textField.text)!" //something funny going on here
     }
     
     @IBAction func friendsButton(sender: UIButton) {
@@ -98,7 +98,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = "Welcome\n" + (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!)
+        //label.text = "Welcome "
+        //let name:String = (NSUserDefaults.standardUserDefaults().objectForKey("name") as String!)
+        //label.text = " " + name
     }
 
     override func didReceiveMemoryWarning() {
